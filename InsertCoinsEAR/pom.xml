@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.vhs.fh</groupId>
+  <artifactId>InsertCoinsEAR</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>ear</packaging>
+  <dependencies>
+		<dependency>
+			<groupId>com.vhs.fh</groupId>
+			<artifactId>InsertCoinsWeb</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+
+	</dependencies>
+  <build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.10</version>
+				<configuration>
+					<version>7</version>
+					<modules>
+						<webModule>
+							<groupId>com.vhs.fh</groupId>
+							<artifactId>InsertCoinsWeb</artifactId>
+							<bundleFileName>InsertCoinsWeb.war</bundleFileName>
+						</webModule>
+					</modules>
+<generateApplicationXml>false</generateApplicationXml>
+					<security>
+						<security-role id="SecurityRole_1234">
+							<role-name>Cometido Seguridad para Usuarios</role-name>
+						</security-role>
+					</security>
+
+
+
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
